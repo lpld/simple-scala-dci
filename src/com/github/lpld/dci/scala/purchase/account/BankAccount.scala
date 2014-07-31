@@ -4,8 +4,9 @@ package com.github.lpld.dci.scala.purchase.account
  * @author leopold
  * @since 7/31/14
  */
-class BankAccount(id: String) {
-    var amount : BigDecimal = 0
+class BankAccount(
+                     id: String,
+                     var amount: BigDecimal) {
 
     def increase(value : BigDecimal) = amount += value
 

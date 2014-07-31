@@ -5,7 +5,7 @@ package com.github.lpld.dci.scala.purchase.shipping
  * @since 7/31/14
  */
 object ShippingService {
-    def shippingToAddress(address: String): Shipping =
+    def shippingTo(address: String): Shipping =
         // calculate shipping price somehow
         new Shipping(address, 100)
 }

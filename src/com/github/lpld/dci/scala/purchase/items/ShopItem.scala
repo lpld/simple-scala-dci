@@ -1,4 +1,4 @@
-package com.github.lpld.dci.scala.purchase.shipping
+package com.github.lpld.dci.scala.purchase.items
 
 import com.github.lpld.dci.scala.purchase.HasPrice
 
@@ -6,7 +6,7 @@ import com.github.lpld.dci.scala.purchase.HasPrice
  * @author leopold
  * @since 7/31/14
  */
-class Shipping(
-                  address: String,
+class ShopItem(
+                  name: String,
                   var price: BigDecimal) extends HasPrice {
 }

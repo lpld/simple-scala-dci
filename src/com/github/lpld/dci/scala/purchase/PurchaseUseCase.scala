@@ -1,7 +1,8 @@
 package com.github.lpld.dci.scala.purchase
 
-import com.github.lpld.dci.scala.purchase.account.{ATrait, Source, Destination, BankAccount}
+import com.github.lpld.dci.scala.purchase.account.{BankAccount, Destination, Source}
 import com.github.lpld.dci.scala.purchase.discount.Discountable
+import com.github.lpld.dci.scala.purchase.items.ShopItem
 import com.github.lpld.dci.scala.purchase.shipping.ShippingService
 
 /**
@@ -14,11 +15,9 @@ object PurchaseUseCase {
         val shopItem = new ShopItem("TV", 3000) with Discountable
         val address = "To grandpa's village"
         val discountId = 234
-        val userAccount = new BankAccount("1234567890") with Source
-        userAccount.increase(4000)
+        val userAccount = new BankAccount("1234567890", 4000) with Source
 
-        val shopAccount = new BankAccount("0987654321") with Destination
-        shopAccount.increase(4000)
+        val shopAccount = new BankAccount("0987654321", 4000) with Destination
 
         //
         println("Item price: " + shopItem.price)
@@ -28,7 +27,7 @@ object PurchaseUseCase {
         println(" ---- buying ----")
 
         // calculate the price of shipment
-        val shipping = ShippingService.shippingToAddress(address)
+        val shipping = ShippingService.shippingTo(address)
         println("Shipping account: " + shipping.price)
 
         // apply discount
